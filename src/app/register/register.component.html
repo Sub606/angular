@@ -1,0 +1,30 @@
+<form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Register Page</h1>
+    </div>
+
+    <app-generic-input
+        [placeholder]="First Name"
+        [isRequired]="true"
+        [errorMsg]="Please enter your name"
+        [label]="Full Name"
+        formControlName="name">
+    </app-generic-input>
+
+   <app-generic-input [placeholder]="'Age'"
+    [label] = "'Age'"
+    formControlName="age">
+   </app-generic-input>
+
+   <app-generic-input [placeholder]="'Email'"
+    [isRequired]="true"
+    [errorMsg]="'Please enter valid email address'"
+    [label] = "'User Email'"
+    [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'"
+    formControlName="email">
+  </app-generic-input>
+
+  <app-password-input formControlName="password"></app-password-input>
+  <button class="btn btn-lg btn-primary btn-block" [disabled]="!form.valid" type="submit">Sign in</button>
+    
+</form>
